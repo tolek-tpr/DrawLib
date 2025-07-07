@@ -15,7 +15,7 @@ public abstract class Shape <T extends Selectable> {
         return this;
     }
 
-    // Step is usually between 0-1 as a progress, but in circle it is between 0-90
+    // Step is usually between 0-1 as a progress, but in circle it is between 0-90 and arc 0-360
     public abstract Selection<T> select(boolean filled, Selectable.Factory factory, double step);
 
     protected void checkShouldSkip(double step, boolean[] shouldContinue) {

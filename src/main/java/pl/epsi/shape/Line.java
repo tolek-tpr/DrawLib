@@ -2,7 +2,7 @@ package pl.epsi.shape;
 
 import pl.epsi.selection.Selectable;
 import pl.epsi.selection.Selection;
-import pl.epsi.util.Vec3d;
+import pl.epsi.math.Vec3d;
 
 public class Line<T extends Selectable> extends Shape<T> {
 
@@ -32,6 +32,12 @@ public class Line<T extends Selectable> extends Shape<T> {
     @Override
     public Selection<T> select(boolean filled, Selectable.Factory factory, double step) {
         final Selection<T> selection = new Selection<>();
+        final double dx = pos2.x - pos1.x;
+        final double dy = pos2.y - pos1.y;
+        final double dz = pos2.z - pos1.z;
+
+        double distance = Math.sqrt(Math.abs(dx * dx + dy * dy + dz * dz));
+        step = distance * step;
 
         for (double i = 0; i <= 1; i += step) {
             checkShouldSkip(i, shouldContinue);

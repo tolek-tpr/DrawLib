@@ -1,6 +1,6 @@
 package pl.epsi.selection;
 
-import pl.epsi.util.Vec3d;
+import pl.epsi.math.Vec3d;
 
 public class DefaultSelectable implements Selectable {
 
@@ -19,6 +19,16 @@ public class DefaultSelectable implements Selectable {
     public DefaultSelectable setLocation(Vec3d loc) {
         this.location = loc;
         return this;
+    }
+
+    @Override
+    public Selectable cloneSelectable() {
+        return new DefaultSelectable().setLocation(this.location.clone());
+    }
+
+    @Override
+    public String toString() {
+        return "Loc: " + this.location;
     }
 
     public static class DefaultSelectableFactory implements Selectable.Factory {

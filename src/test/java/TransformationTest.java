@@ -1,10 +1,12 @@
 import org.junit.jupiter.api.Test;
 import pl.epsi.selection.DefaultSelectable;
 import pl.epsi.selection.Selection;
+import pl.epsi.shape.Square;
 import pl.epsi.transform.CompositeTransformation;
 import pl.epsi.transform.MoveTransformation;
 import pl.epsi.transform.RotateTransformation;
-import pl.epsi.util.Vec3d;
+import pl.epsi.math.Vec3d;
+import pl.epsi.transform.ScaleTransformation;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -14,7 +16,7 @@ public class TransformationTest {
     @Test
     public void rotateTest() {
         Selection<DefaultSelectable> s = new Selection<DefaultSelectable>().add(new DefaultSelectable().setLocation(new Vec3d(1d, 1d, 2d)));
-        RotateTransformation t = new RotateTransformation(new Vec3d(2d, 2d, 2d), new Vec3d(0d, 90d, 0d));
+        RotateTransformation t = new RotateTransformation(new Vec3d(2d, 2d, 2d), new Vec3d(0d, 90, 0d));
         s.transform(t);
 
         assertEquals(2, s.get(0).getLocation().x);
@@ -31,6 +33,17 @@ public class TransformationTest {
         assertEquals(11, s.get(0).getLocation().x);
         assertEquals(11, s.get(0).getLocation().y);
         assertEquals(11, s.get(0).getLocation().z);
+    }
+
+    @Test
+    public void scaleTest() {
+        Selection<DefaultSelectable> s = new Selection<>();
+        ScaleTransformation t = new ScaleTransformation(new Vec3d(2, 1, 2));
+        s.add(new Square<DefaultSelectable>(new Vec3d(2, 1, 2), 2)
+                .select(false, new DefaultSelectable.DefaultSelectableFactory(), 0.5));
+
+        s.transform(t);
+        System.out.println(s);
     }
 
     @Test

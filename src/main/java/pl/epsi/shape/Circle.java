@@ -2,7 +2,7 @@ package pl.epsi.shape;
 
 import pl.epsi.selection.Selectable;
 import pl.epsi.selection.Selection;
-import pl.epsi.util.Vec3d;
+import pl.epsi.math.Vec3d;
 
 public class Circle<T extends Selectable> extends Shape<T> {
 

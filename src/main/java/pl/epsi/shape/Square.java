@@ -2,7 +2,7 @@ package pl.epsi.shape;
 
 import pl.epsi.selection.Selectable;
 import pl.epsi.selection.Selection;
-import pl.epsi.util.Vec3d;
+import pl.epsi.math.Vec3d;
 
 public class Square<T extends Selectable> extends Shape<T> {
 
@@ -22,6 +22,7 @@ public class Square<T extends Selectable> extends Shape<T> {
     @SuppressWarnings("unchecked")
     @Override
     public Selection<T> select(boolean filled, Selectable.Factory factory, double step) {
+        step = step * halfSideLength * 2;
         Selection<T> selection = new Selection<>();
 
         for (double i = -halfSideLength; i < halfSideLength; i += step) {

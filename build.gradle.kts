@@ -13,6 +13,10 @@ repositories {
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
+
+    implementation("org.apache.logging.log4j:log4j-slf4j2-impl:2.21.0") // Log4J2
+
+    compileOnly("org.jetbrains:annotations:26.0.2")
 }
 
 tasks.test {
