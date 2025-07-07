@@ -14,15 +14,15 @@ dependencies {
 Maven:
 ```xml
 <repositories>
-  <repository>
-    <id>jitpack.io</id>
-    <url>https://jitpack.io</url>
-  </repository>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
 </repositories>
 
 <dependency>
-<groupId>com.github.tolek-tpr</groupId>
-<artifactId>drawlib</artifactId>
-<version>VERSION</version>
+    <groupId>com.github.tolek-tpr</groupId>
+    <artifactId>drawlib</artifactId>
+    <version>VERSION</version>
 </dependency>
 ```

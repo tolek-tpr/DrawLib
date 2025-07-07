@@ -23,6 +23,11 @@ tasks.test {
     useJUnitPlatform()
 }
 
+tasks.compileJava {
+    sourceCompatibility = "21"
+    targetCompatibility = "21"
+}
+
 publishing {
     publications {
         create<MavenPublication>("mavenJava") {
