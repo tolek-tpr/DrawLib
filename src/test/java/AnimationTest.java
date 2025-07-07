@@ -26,7 +26,7 @@ public class AnimationTest {
 
         selection.add(new DefaultSelectable().setLocation(new Vec3d(1, 1, 2)));
 
-        Animation<DefaultSelectable> a = new Animation<>(new TestScheduler(), 2, selection, new Vec3d(2, 2, 2));
+        Animation<DefaultSelectable> a = new Animation<>(new TestScheduler(), 2, selection);
         a.add(transform);
         a.add(move);
         a.setAfterAnimation((b) -> selection.clear().add(b));
